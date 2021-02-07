@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ecommerce_gql_learning.Data;
 using Microsoft.EntityFrameworkCore;
+using ecommerce_gql_learning.GraphQL;
 
 namespace ecommerce_gql_learning
 {
@@ -27,6 +28,9 @@ namespace ecommerce_gql_learning
             {
                 options.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
             });
+            services
+                .AddGraphQLServer()
+                .AddQueryType<Query>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
