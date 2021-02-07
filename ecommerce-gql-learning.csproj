@@ -5,4 +5,15 @@
     <RootNamespace>ecommerce_gql_learning</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="GraphQL.Server.UI.Voyager" Version="4.4.1" />
+    <PackageReference Include="HotChocolate.AspNetCore" Version="11.0.9" />
+    <PackageReference Include="HotChocolate.Data.EntityFramework" Version="11.0.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.2">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SQLServer" Version="5.0.2" />
+  </ItemGroup>
+
 </Project>

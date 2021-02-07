@@ -19,3 +19,11 @@
 - Add Payloads and Inputs (using records)
 - Add Mutations
 - Add Subscriptions
+
+## Done
+
+- Created empty new web application ASP. NET 5 (dotnet new web)
+- Installed packages (dotnet add package)
+  - Entity Framework Core (Microsoft.EntityFrameworkCore.Design, Microsoft.EntityFrameworkCore.SQLServer)
+  - Hot Chocolate (HotChocolate.AspNetCore, HotChocolate.Data.Entityframework)
+  - GraphQL Voyager (GraphQL.Server.UI.Voyager)
