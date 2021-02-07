@@ -11,6 +11,11 @@ namespace ecommerce_gql_learning.GraphQL.Products
         protected override void Configure(IObjectTypeDescriptor<Product> descriptor)
         {
             descriptor.Description("These are products for the shop");
+            descriptor
+                .Field(p => p.Category)
+                .ResolveWith<Resolvers>(p => p.GetProduct(default!, default!))
+                .Description("This is the category that belongs to the product");
+
         }
         private class Resolvers
         {
