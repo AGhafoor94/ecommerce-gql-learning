@@ -8,11 +8,6 @@
 
 ## To Do
 
-- Create App
-- Install Dependencies
-- Create Models
-- Create DB Context instance
-- Migrations (using Entity Framework Core)
 - Querying GraphQL
 - Documentation (Abstracted)
 - Add Resolvers
@@ -22,8 +17,15 @@
 
 ## Done
 
+- Create App
 - Created empty new web application ASP. NET 5 (dotnet new web)
 - Installed packages (dotnet add package)
   - Entity Framework Core (Microsoft.EntityFrameworkCore.Design, Microsoft.EntityFrameworkCore.SQLServer)
   - Hot Chocolate (HotChocolate.AspNetCore, HotChocolate.Data.Entityframework)
   - GraphQL Voyager (GraphQL.Server.UI.Voyager)
+- Install Dependencies
+- Created Models
+- Create DB Context instance
+- Migrations (using Entity Framework Core)
+  - dotnet ef migrations add (name of migration)
+  - dotnet ef database update
