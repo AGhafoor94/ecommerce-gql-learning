@@ -8,8 +8,6 @@
 
 ## To Do
 
-- Create DB Context instance
-- Migrations (using Entity Framework Core)
 - Querying GraphQL
 - Documentation (Abstracted)
 - Add Resolvers
@@ -27,3 +25,7 @@
   - GraphQL Voyager (GraphQL.Server.UI.Voyager)
 - Install Dependencies
 - Created Models
+- Create DB Context instance
+- Migrations (using Entity Framework Core)
+  - dotnet ef migrations add (name of migration)
+  - dotnet ef database update
