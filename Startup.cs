@@ -1,15 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ecommerce_gql_learning.Data;
 using Microsoft.EntityFrameworkCore;
+using ecommerce_gql_learning.GraphQL;
+using ecommerce_gql_learning.GraphQL.Categories;
+using ecommerce_gql_learning.GraphQL.Products;
+using GraphQL.Server.Ui.Voyager;
 
 namespace ecommerce_gql_learning
 {
@@ -23,10 +22,18 @@ namespace ecommerce_gql_learning
         }
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AppDbContext>(options =>
+            services.AddPooledDbContextFactory<AppDbContext>(options =>
             {
                 options.UseSqlServer(_config.GetConnectionString("DefaultConnection"));
             });
+            services
+                .AddGraphQLServer()
+                .AddQueryType<Query>()
+                .AddType<CategoryType>()
+                .AddType<ProductType>()
+                .AddFiltering()
+                .AddSorting()
+                .AddMutationType<Mutation>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -40,10 +47,12 @@ namespace ecommerce_gql_learning
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapGraphQL();
+            });
+            app.UseGraphQLVoyager(new GraphQLVoyagerOptions()
+            {
+                GraphQLEndPoint = "/graphql",
+                Path = "/graphql-voyager"
             });
         }
     }

@@ -8,7 +8,6 @@
 
 ## To Do
 
-- Querying GraphQL
 - Documentation (Abstracted)
 - Add Resolvers
 - Add Payloads and Inputs (using records)
@@ -29,3 +28,9 @@
 - Migrations (using Entity Framework Core)
   - dotnet ef migrations add (name of migration)
   - dotnet ef database update
+- Querying GraphQL
+  - Created Query.cs to query using GraphQL
+    - Updating DbContext to AddPooledDbContextFactory for multiple calls for the GraphQL
+    - Added Annotations for a scoped service and to use DbContext (Scoped: Creating one instance per client request)
+  - Creating Types which inherit from ObjectType
+    - Adding documentation, Resolvers

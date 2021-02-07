@@ -15,13 +15,13 @@ namespace ecommerce_gql_learning.Data
             modelBuilder
                 .Entity<Category>()
                 .HasMany(c => c.Products)
-                .WithOne(c => c.Category)
+                .WithOne(c => c.Category!)
                 .HasForeignKey(c => c.CategoryId);
             modelBuilder
                 .Entity<Product>()
                 .HasOne(p => p.Category)
                 .WithMany(p => p.Products)
-                .HasForeignKey(p => p.Id);
+                .HasForeignKey(p => p.CategoryId);
         }
     }
 }
