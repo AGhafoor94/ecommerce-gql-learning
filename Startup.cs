@@ -6,6 +6,8 @@ using Microsoft.Extensions.Hosting;
 using ecommerce_gql_learning.Data;
 using Microsoft.EntityFrameworkCore;
 using ecommerce_gql_learning.GraphQL;
+using ecommerce_gql_learning.GraphQL.Categories;
+using ecommerce_gql_learning.GraphQL.Products;
 
 namespace ecommerce_gql_learning
 {
@@ -25,7 +27,11 @@ namespace ecommerce_gql_learning
             });
             services
                 .AddGraphQLServer()
-                .AddQueryType<Query>();
+                .AddQueryType<Query>()
+                .AddType<CategoryType>()
+                .AddType<ProductType>()
+                .AddFiltering()
+                .AddSorting();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
