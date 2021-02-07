@@ -29,11 +29,11 @@ namespace ecommerce_gql_learning
             services
                 .AddGraphQLServer()
                 .AddQueryType<Query>()
+                .AddMutationType<Mutation>()
                 .AddType<CategoryType>()
                 .AddType<ProductType>()
                 .AddFiltering()
-                .AddSorting()
-                .AddMutationType<Mutation>();
+                .AddSorting();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
