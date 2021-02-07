@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ecommerce_gql_learning.GraphQL;
 using ecommerce_gql_learning.GraphQL.Categories;
 using ecommerce_gql_learning.GraphQL.Products;
+using GraphQL.Server.Ui.Voyager;
 
 namespace ecommerce_gql_learning
 {
@@ -31,7 +32,8 @@ namespace ecommerce_gql_learning
                 .AddType<CategoryType>()
                 .AddType<ProductType>()
                 .AddFiltering()
-                .AddSorting();
+                .AddSorting()
+                .AddMutationType<Mutation>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -46,6 +48,11 @@ namespace ecommerce_gql_learning
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGraphQL();
+            });
+            app.UseGraphQLVoyager(new GraphQLVoyagerOptions()
+            {
+                GraphQLEndPoint = "/graphql",
+                Path = "/graphql-voyager"
             });
         }
     }
