@@ -8,7 +8,6 @@
 
 ## To Do
 
-- Querying GraphQL
 - Documentation (Abstracted)
 - Add Resolvers
 - Add Payloads and Inputs (using records)
@@ -29,3 +28,5 @@
 - Migrations (using Entity Framework Core)
   - dotnet ef migrations add (name of migration)
   - dotnet ef database update
+- Querying GraphQL
+  - Created Query.cs to query using GraphQL
